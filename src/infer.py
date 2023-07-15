@@ -37,7 +37,9 @@ model.load_state_dict(torch.load(f'saved/{model_id}/{model_id}_epoch_{epoch}.pt'
 model.half().cuda().eval()
 history = []
 
+input_format =  f 'Instruction: What is the sentiment of this news?\nAnswer:{very negative/negative/neutral/positive/very positive}\nInput:"{content}"\nAnswer:'
+
 while True:
     content = input(">")
-    response, history = model.chat(tokenizer, content, history=history)
+    response, history = model.chat(tokenizer, input_format, history=history)
     print(response)
