@@ -34,4 +34,8 @@ accelerate launch --config_file config/default_config.yaml src/train.py
 >>> response, history = model.chat(tokenizer, "晚上睡不着应该怎么办", history=history)
 >>> print(response)
 ```
- 
+
+cmd
+```
+python3 src/infer.py
+```
