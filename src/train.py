@@ -76,7 +76,7 @@ accelerator.print('Start to process data')
 
 
 with accelerator.main_process_first():
-    pairs = Alpaca_Data.load('../data/dataset_title_train_and_valid.json')
+    pairs = Alpaca_Data.load('./data/dataset_title_train_and_valid.json')
     pairs_encoded = dataset.GLM.encode_pairs(pairs, tokenizer)
     pairs_encoded = list(filter(lambda pair: len(pair['prompt'])+len(pair['completion']) <= MAX_LENGTH, pairs_encoded))
 train_dataset = dataset.GLM.SimpleDataset(pairs_encoded)
