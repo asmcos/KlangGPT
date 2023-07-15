@@ -32,7 +32,7 @@ warm_up_ratio = 0.1
 epoch = NUM_EPOCHS - 1
 model = get_peft_model(model, lora_config)
 
-model.load_state_dict(torch.load('saved/{model_id}/{model_id}_epoch_{epoch}.pt'), strict=False)
+model.load_state_dict(torch.load(f'saved/{model_id}/{model_id}_epoch_{epoch}.pt'), strict=False)
 
 model.half().cuda().eval()
 history = []
