@@ -29,7 +29,7 @@ NUM_EPOCHS = 3
 accumulate_step = 8
 warm_up_ratio = 0.1
 
-epoch = NUM_EPOCHS
+epoch = NUM_EPOCHS - 1
 model = get_peft_model(model, lora_config)
 
 model.load_state_dict(torch.load('saved/{model_id}/{model_id}_epoch_{epoch}.pt'), strict=False)
@@ -37,6 +37,7 @@ model.load_state_dict(torch.load('saved/{model_id}/{model_id}_epoch_{epoch}.pt')
 model.half().cuda().eval()
 history = []
 
-content = input(">")
-response, history = model.chat(tokenizer, content, history=history)
-print(response)
+while True:
+    content = input(">")
+    response, history = model.chat(tokenizer, content, history=history)
+    print(response)
