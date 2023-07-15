@@ -17,6 +17,9 @@ base on FinGPT
 # train.py 
 个性化训练
 来自 https://github.com/lich99/ChatGLM-finetune-LoRA
+```
+accelerate launch --config_file config/default_config.yaml src/train.py
+```
 
 # 使用例子 infer.py 
 

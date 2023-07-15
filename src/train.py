@@ -14,7 +14,10 @@ from accelerate import Accelerator, DeepSpeedPlugin
 from transformers import get_linear_schedule_with_warmup
 
 from peft import get_peft_model, LoraConfig, TaskType
+import sys
 
+sys.path.append(os.path.expanduser(sys.path[0] + "/../"))
+print(sys.path)
 
 checkpoint = "THUDM/chatglm-6b"
 
