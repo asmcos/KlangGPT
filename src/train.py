@@ -49,6 +49,7 @@ with accelerator.main_process_first():
     retry_cnt = 10
     cnt = 0
     while cnt < retry_cnt:
+        import dataset.GLM
         try:
             tokenizer = AutoTokenizer.from_pretrained(checkpoint, trust_remote_code=True, revision = 'main')
             model = AutoModel.from_pretrained(checkpoint, trust_remote_code=True, )#revision = 'main')
@@ -75,7 +76,7 @@ accelerator.print('Start to process data')
 
 
 with accelerator.main_process_first():
-    pairs = Alpaca_Data.load('dataset_title_train_and_valid.json')
+    pairs = Alpaca_Data.load('../data/dataset_title_train_and_valid.json')
     pairs_encoded = dataset.GLM.encode_pairs(pairs, tokenizer)
     pairs_encoded = list(filter(lambda pair: len(pair['prompt'])+len(pair['completion']) <= MAX_LENGTH, pairs_encoded))
 train_dataset = dataset.GLM.SimpleDataset(pairs_encoded)
