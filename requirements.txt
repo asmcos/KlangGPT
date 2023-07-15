@@ -1,0 +1,11 @@
+torch
+peft
+loralib
+accelerate
+transformers
+bitsandbytes
+deepspeed
+joblib
+numpy
+pandas
+cpm_kernels
