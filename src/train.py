@@ -17,7 +17,7 @@ from peft import get_peft_model, LoraConfig, TaskType
 import sys
 
 sys.path.append(os.path.expanduser(sys.path[0] + "/../"))
-print(sys.path)
+import dataset
 
 checkpoint = "THUDM/chatglm-6b"
 
